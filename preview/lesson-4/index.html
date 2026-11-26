@@ -1,23 +1,21 @@
 <!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>الدرس 4: الشروط: if و else و switch | Mobile App A to Z</title><meta name="description" content="ملاحظات وأكواد وتاسك الشروط: if و else و switch">
 <script>try{var t=localStorage.getItem('theme')||'dark';document.documentElement.dataset.theme=t}catch(e){document.documentElement.dataset.theme='dark'}</script>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/preview/style.css"></head><body>
 <header><div class="wrap nav"><a class="brand" href="/preview/"><span class="logo"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14"/></svg></span><span dir="ltr">Mobile App A to Z<small>CODE &amp; NOTES</small></span></a>
 <nav class="links"><a href="/preview/#lessons">الدروس</a><a href="https://www.youtube.com/@MobileAppAtoZ" target="_blank" rel="noopener">يوتيوب</a><a href="https://www.tiktok.com/@mobileappatoz" target="_blank" rel="noopener">تيك توك</a></nav>
-<button id="theme" class="iconbtn" aria-label="تبديل الوضع"><span class="sun">☀</span><span class="moon">☾</span></button></div></header><main class="wrap lesson"><a class="back" href="/preview/">← كل الدروس</a><div class="l-head"><span class="badge">الدرس 4</span><h1>الشروط: if و else و switch</h1></div>
-  <a class="yt" href="https://youtu.be/I2phxwrN1MU" target="_blank" rel="noopener">▶ شاهد الفيديو على يوتيوب</a><div class="box answer"><h3>إجابة تاسك الدرس 3</h3><p>تلات متغيرات: الاسم والسن والمدينة</p><div class="snip"><div class="snip-head"><span dir="ltr">Answer: Lesson 3</span><button class="copy" data-code="c7">نسخ</button></div><pre dir="ltr" id="c7"><code><span class="k">void</span> <span class="f">main</span>() {
-  <span class="k">String</span> name = <span class="s">'Ahmed'</span>;
-  <span class="k">int</span> age = 20;
-  <span class="k">var</span> city = <span class="s">'Cairo'</span>;
-  <span class="f">print</span>(<span class="s">'$name is $age years old and lives in $city'</span>);
-}</code></pre></div></div><h3>ملاحظات</h3><ul class="notes"><li>الـ control statement كود بيتنفذ بس لو شرط اتحقق.</li><li>فكّر بالخطوات قبل الكود: خد القيمة، اتشيك عليها، اطبع النتيجة. بعدين حوّل كل خطوة لسطر.</li><li>if فيها تلات أجزاء: الكلمة، الشرط، والبلوك { }. else بتتنفذ لو الشرط غلط.</li><li>else if: أول شرط صح هو اللي بيتنفذ والباقي بيتلغي.</li><li>فرق مهم: else if ورا بعض غير if ورا بعض. مع if منفصلة كل الشروط بتتشيك، والـ else بتتربط بآخر if بس. النتيجة غلط زي طباعة Excellent وبعدها Invalid.</li><li>جرّب كل فرع: لو عندك خمس شروط جرّب خمس مرات، وجرّب أرقام الحدود وأرقام غريبة زي 200.</li><li>في else if مش لازم تكرر الحد الأعلى، لأن الشرط اللي قبله اتشيك عليه.</li><li>علامات المقارنة: &gt; &lt; &gt;= &lt;= == !=. جوه الشرط استخدم == مش =.</li><li>&amp;&amp; يعني الاتنين لازم صح. || يعني واحد صح يكفي.</li><li>switch للقيمة الواحدة والحالات الثابتة. استخدم break و default.</li><li>القراءة من المستخدم: stdin.readLineSync() بترجع String، وint.parse بتحولها لرقم.</li><li>دايماً اكتب الأقواس { } مع if.</li></ul><h3>الأكواد</h3><div class="snip"><div class="snip-head"><span dir="ltr">if and else</span><button class="copy" data-code="c8">نسخ</button></div><pre dir="ltr" id="c8"><code><span class="k">void</span> <span class="f">main</span>() {
+<button id="theme" class="iconbtn" aria-label="تبديل الوضع"><span class="sun">☀</span><span class="moon">☾</span></button></div></header><main class="wrap lesson"><div class="crumb"><a href="/preview/">الرئيسية</a> / <a href="/preview/#lessons">الدروس</a> / الدرس 4</div>
+  <div class="l-head"><div><span class="badge">الدرس 4 من 5</span><h1>الشروط: if و else و switch</h1></div></div><div class="prog"><i style="width:80%"></i></div>
+  <div class="dl"><div class="main-col">
+  <section class="panel"><a class="video" href="https://youtu.be/I2phxwrN1MU" target="_blank" rel="noopener"><span class="ph2">4</span><img src="https://i.ytimg.com/vi/I2phxwrN1MU/maxresdefault.jpg" alt="" onload="if(this.naturalWidth<200)this.remove()" onerror="this.remove()"><span class="play">▶</span><span class="vl">شاهد الفيديو على يوتيوب ↗</span></a></section>
+  <section class="panel"><div class="tabs" role="tablist"><button class="tab on" data-tab="code">الأكواد</button><button class="tab" data-tab="notes">الملاحظات</button><button class="tab" data-tab="task">التاسك</button><button class="tab" data-tab="ans">إجابة تاسك الدرس 3</button></div><div class="pane" id="pane-code"><div class="snip"><div class="snip-head"><span dir="ltr">if and else</span><button class="copy" data-code="c7">نسخ</button></div><pre dir="ltr" id="c7"><code><span class="k">void</span> <span class="f">main</span>() {
   <span class="k">var</span> age = 20;
   <span class="k">if</span> (age &gt;= 18) {
     <span class="f">print</span>(<span class="s">'Accepted'</span>);
   } <span class="k">else</span> {
     <span class="f">print</span>(<span class="s">'Rejected'</span>);
   }
-}</code></pre></div><div class="snip"><div class="snip-head"><span dir="ltr">else if (grades)</span><button class="copy" data-code="c9">نسخ</button></div><pre dir="ltr" id="c9"><code><span class="k">void</span> <span class="f">main</span>() {
+}</code></pre></div><div class="snip"><div class="snip-head"><span dir="ltr">else if (grades)</span><button class="copy" data-code="c8">نسخ</button></div><pre dir="ltr" id="c8"><code><span class="k">void</span> <span class="f">main</span>() {
   <span class="k">var</span> score = 85;
   <span class="k">if</span> (score &gt;= 90) {
     <span class="f">print</span>(<span class="s">'A'</span>);
@@ -26,7 +24,7 @@
   } <span class="k">else</span> {
     <span class="f">print</span>(<span class="s">'C'</span>);
   }
-}</code></pre></div><div class="snip"><div class="snip-head"><span dir="ltr">Separate ifs (the bug) vs else if chain</span><button class="copy" data-code="c10">نسخ</button></div><pre dir="ltr" id="c10"><code><span class="k">void</span> <span class="f">main</span>() {
+}</code></pre></div><div class="snip"><div class="snip-head"><span dir="ltr">Separate ifs (the bug) vs else if chain</span><button class="copy" data-code="c9">نسخ</button></div><pre dir="ltr" id="c9"><code><span class="k">void</span> <span class="f">main</span>() {
   <span class="k">var</span> grade = 90;
 
   <span class="c">// Bug: separate ifs, the last else belongs to the last if only</span>
@@ -42,7 +40,7 @@
   } <span class="k">else</span> {
     <span class="f">print</span>(<span class="s">'Invalid'</span>);
   }
-}</code></pre></div><div class="snip"><div class="snip-head"><span dir="ltr">&amp;&amp; and ||</span><button class="copy" data-code="c11">نسخ</button></div><pre dir="ltr" id="c11"><code><span class="k">void</span> <span class="f">main</span>() {
+}</code></pre></div><div class="snip"><div class="snip-head"><span dir="ltr">&amp;&amp; and ||</span><button class="copy" data-code="c10">نسخ</button></div><pre dir="ltr" id="c10"><code><span class="k">void</span> <span class="f">main</span>() {
   <span class="k">var</span> age = 20;
   <span class="k">var</span> hasId = <span class="k">true</span>;
   <span class="k">if</span> (age &gt;= 18 &amp;&amp; hasId) {
@@ -54,7 +52,7 @@
   <span class="k">if</span> (isAdmin || isOwner) {
     <span class="f">print</span>(<span class="s">'Allowed'</span>);
   }
-}</code></pre></div><div class="snip"><div class="snip-head"><span dir="ltr">Nested if</span><button class="copy" data-code="c12">نسخ</button></div><pre dir="ltr" id="c12"><code><span class="k">void</span> <span class="f">main</span>() {
+}</code></pre></div><div class="snip"><div class="snip-head"><span dir="ltr">Nested if</span><button class="copy" data-code="c11">نسخ</button></div><pre dir="ltr" id="c11"><code><span class="k">void</span> <span class="f">main</span>() {
   <span class="k">var</span> age = 20;
   <span class="k">var</span> hasTicket = <span class="k">true</span>;
   <span class="k">if</span> (age &gt;= 18) {
@@ -64,7 +62,7 @@
       <span class="f">print</span>(<span class="s">'Buy ticket'</span>);
     }
   }
-}</code></pre></div><div class="snip"><div class="snip-head"><span dir="ltr">switch</span><button class="copy" data-code="c13">نسخ</button></div><pre dir="ltr" id="c13"><code><span class="k">void</span> <span class="f">main</span>() {
+}</code></pre></div><div class="snip"><div class="snip-head"><span dir="ltr">switch</span><button class="copy" data-code="c12">نسخ</button></div><pre dir="ltr" id="c12"><code><span class="k">void</span> <span class="f">main</span>() {
   <span class="k">var</span> day = 3;
   <span class="k">switch</span> (day) {
     <span class="k">case</span> 1:
@@ -76,11 +74,11 @@
     <span class="k">default</span>:
       <span class="f">print</span>(<span class="s">'Other day'</span>);
   }
-}</code></pre></div><div class="snip"><div class="snip-head"><span dir="ltr">Ternary (one-line if)</span><button class="copy" data-code="c14">نسخ</button></div><pre dir="ltr" id="c14"><code><span class="k">void</span> <span class="f">main</span>() {
+}</code></pre></div><div class="snip"><div class="snip-head"><span dir="ltr">Ternary (one-line if)</span><button class="copy" data-code="c13">نسخ</button></div><pre dir="ltr" id="c13"><code><span class="k">void</span> <span class="f">main</span>() {
   <span class="k">var</span> age = 20;
   <span class="k">var</span> msg = age &gt;= 18 ? <span class="s">'Adult'</span> : <span class="s">'Minor'</span>;
   <span class="f">print</span>(msg);
-}</code></pre></div><div class="snip"><div class="snip-head"><span dir="ltr">Max of 3 numbers</span><button class="copy" data-code="c15">نسخ</button></div><pre dir="ltr" id="c15"><code><span class="k">void</span> <span class="f">main</span>() {
+}</code></pre></div><div class="snip"><div class="snip-head"><span dir="ltr">Max of 3 numbers</span><button class="copy" data-code="c14">نسخ</button></div><pre dir="ltr" id="c14"><code><span class="k">void</span> <span class="f">main</span>() {
   <span class="k">var</span> a = 10, b = 15, c = 20;
   <span class="k">if</span> (a &gt;= b &amp;&amp; a &gt;= c) {
     <span class="f">print</span>(a);
@@ -89,7 +87,7 @@
   } <span class="k">else</span> {
     <span class="f">print</span>(c);
   }
-}</code></pre></div><div class="snip"><div class="snip-head"><span dir="ltr">Read a number from the user</span><button class="copy" data-code="c16">نسخ</button></div><pre dir="ltr" id="c16"><code><span class="k">import</span> <span class="s">'dart:io'</span>;
+}</code></pre></div><div class="snip"><div class="snip-head"><span dir="ltr">Read a number from the user</span><button class="copy" data-code="c15">نسخ</button></div><pre dir="ltr" id="c15"><code><span class="k">import</span> <span class="s">'dart:io'</span>;
 
 <span class="k">void</span> <span class="f">main</span>() {
   <span class="f">print</span>(<span class="s">'Enter a number:'</span>);
@@ -99,5 +97,12 @@
   } <span class="k">else</span> {
     <span class="f">print</span>(<span class="s">'Odd'</span>);
   }
-}</code></pre></div><div class="box task"><h3>تاسك الدرس 4</h3><p>اكتب برنامج يقول إن الرقم 7 زوجي (Even) ولا فردي (Odd).</p><p class="hint">تلميح: <bdi>استخدم n % 2 == 0</bdi></p><p class="hint">الإجابة في فيديو الدرس 5 وفي صفحة الدرس 5.</p></div><div class="pn"><a href="/preview/lesson-5/">الدرس 5 ←</a><a href="/preview/lesson-3/">→ الدرس 3</a></div>
-  <h3>التعليقات</h3><p class="cm-note">اكتب تعليقك أو سؤالك عن الدرس. محتاج حساب GitHub مجاني عشان تعلّق.</p><div id="comments" class="comments" data-term="lesson-4"></div></main><footer><div class="wrap">Mobile App A to Z · <a href="https://www.youtube.com/@MobileAppAtoZ" target="_blank" rel="noopener">@MobileAppAtoZ</a></div></footer><script src="/preview/app.js"></script></body></html>
+}</code></pre></div></div><div class="pane" id="pane-notes" hidden><ul class="notes"><li>الـ control statement كود بيتنفذ بس لو شرط اتحقق.</li><li>فكّر بالخطوات قبل الكود: خد القيمة، اتشيك عليها، اطبع النتيجة. بعدين حوّل كل خطوة لسطر.</li><li>if فيها تلات أجزاء: الكلمة، الشرط، والبلوك { }. else بتتنفذ لو الشرط غلط.</li><li>else if: أول شرط صح هو اللي بيتنفذ والباقي بيتلغي.</li><li>فرق مهم: else if ورا بعض غير if ورا بعض. مع if منفصلة كل الشروط بتتشيك، والـ else بتتربط بآخر if بس. النتيجة غلط زي طباعة Excellent وبعدها Invalid.</li><li>جرّب كل فرع: لو عندك خمس شروط جرّب خمس مرات، وجرّب أرقام الحدود وأرقام غريبة زي 200.</li><li>في else if مش لازم تكرر الحد الأعلى، لأن الشرط اللي قبله اتشيك عليه.</li><li>علامات المقارنة: &gt; &lt; &gt;= &lt;= == !=. جوه الشرط استخدم == مش =.</li><li>&amp;&amp; يعني الاتنين لازم صح. || يعني واحد صح يكفي.</li><li>switch للقيمة الواحدة والحالات الثابتة. استخدم break و default.</li><li>القراءة من المستخدم: stdin.readLineSync() بترجع String، وint.parse بتحولها لرقم.</li><li>دايماً اكتب الأقواس { } مع if.</li></ul></div><div class="pane" id="pane-task" hidden><div class="box task"><h3>تاسك الدرس 4</h3><p>اكتب برنامج يقول إن الرقم 7 زوجي (Even) ولا فردي (Odd).</p><p class="hint">تلميح: <bdi>استخدم n % 2 == 0</bdi></p><p class="hint">الإجابة في فيديو الدرس 5 وفي صفحة الدرس 5.</p></div></div><div class="pane" id="pane-ans" hidden><div class="box answer"><h3>إجابة تاسك الدرس 3</h3><p>تلات متغيرات: الاسم والسن والمدينة</p><div class="snip"><div class="snip-head"><span dir="ltr">Answer: Lesson 3</span><button class="copy" data-code="c16">نسخ</button></div><pre dir="ltr" id="c16"><code><span class="k">void</span> <span class="f">main</span>() {
+  <span class="k">String</span> name = <span class="s">'Ahmed'</span>;
+  <span class="k">int</span> age = 20;
+  <span class="k">var</span> city = <span class="s">'Cairo'</span>;
+  <span class="f">print</span>(<span class="s">'$name is $age years old and lives in $city'</span>);
+}</code></pre></div></div></div></section>
+  <div class="pn"><a href="/preview/lesson-5/">الدرس 5 ←</a><a href="/preview/lesson-3/">→ الدرس 3</a></div>
+  <section class="panel"><h3 class="ct">التعليقات والأسئلة</h3><p class="cm-note">اكتب تعليقك أو سؤالك عن الدرس. محتاج حساب GitHub مجاني عشان تعلّق.</p><div id="comments" class="comments" data-term="lesson-4"></div></section>
+  </div><aside class="side"><div class="panel"><div class="side-t">قائمة الدروس</div><div class="sl"><a class="" href="/preview/lesson-1/"><b>01</b><span>ما هو تطبيق الموبايل؟</span></a><a class="" href="/preview/lesson-2/"><b>02</b><span>تجهيز بيئة العمل: VS Code و Dart SDK</span></a><a class="" href="/preview/lesson-3/"><b>03</b><span>أول برنامج Dart: void main و variables و print</span></a><a class="cur" href="/preview/lesson-4/"><b>04</b><span>الشروط: if و else و switch</span></a><a class="" href="/preview/lesson-5/"><b>05</b><span>التكرار: for و while و do-while</span></a></div></div><div class="panel"><div class="side-t">روابط سريعة</div><a class="ql" href="https://www.youtube.com/@MobileAppAtoZ" target="_blank" rel="noopener">▶ قناة يوتيوب</a><a class="ql" href="https://www.tiktok.com/@mobileappatoz" target="_blank" rel="noopener">♪ تيك توك</a></div></aside></div></main><footer><div class="wrap">Mobile App A to Z · <a href="https://www.youtube.com/@MobileAppAtoZ" target="_blank" rel="noopener">@MobileAppAtoZ</a></div></footer><script src="/preview/app.js"></script></body></html>
