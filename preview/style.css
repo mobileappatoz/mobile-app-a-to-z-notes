@@ -177,3 +177,5 @@ footer .fl{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.f
 .brand,.brand *{white-space:nowrap}.brand b,.brand span{white-space:nowrap}
 @media(max-width:900px){.brand small{display:none}.brand{font-size:15px}}
 .brand{flex:0 0 auto}.brand>div{white-space:nowrap}
+
+.ti{background:#fff!important;border:1px solid var(--line)}.ti svg{width:60%;height:60%;display:block}.ti.big svg{width:58%;height:58%}
