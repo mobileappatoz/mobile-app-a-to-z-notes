@@ -6,13 +6,10 @@ document.addEventListener('click',function(e){
     var fb=function(){var t=document.createElement('textarea');t.value=text;document.body.appendChild(t);t.select();try{document.execCommand('copy');done()}catch(_){}t.remove()};
     if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(text).then(done,fb);else fb();}
   if(e.target.closest('#theme')){var d=document.documentElement,n=d.dataset.theme==='dark'?'light':'dark';d.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(_){}
-    var f=document.querySelector('iframe.giscus-frame');if(f)f.contentWindow.postMessage({giscus:{setConfig:{theme:n}}},'https://giscus.app');}
+    }
 });
 
-(function(){var c=document.getElementById('comments');if(!c)return;
-var s=document.createElement('script');s.src='https://giscus.app/client.js';
-var at={'data-repo':'mobileappatoz/mobile-app-a-to-z-notes','data-repo-id':'R_kgDOV9TjAQ','data-category':'Announcements','data-category-id':'DIC_kwDOV9TjAc4DMDMn','data-mapping':'specific','data-term':c.dataset.term,'data-strict':'0','data-reactions-enabled':'1','data-emit-metadata':'0','data-input-position':'top','data-theme':document.documentElement.dataset.theme==='light'?'light':'dark','data-lang':'ar','data-loading':'lazy'};
-for(var k in at)s.setAttribute(k,at[k]);s.crossOrigin='anonymous';s.async=true;c.appendChild(s);})();
+
 
 (function(){var r=[].slice.call(document.querySelectorAll('.rv'));r.forEach(function(e,i){e.style.setProperty('--d',(i%4)*0.08+'s')});
 if(!('IntersectionObserver' in window)){r.forEach(function(e){e.classList.add('in')});}else{var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12});r.forEach(function(e){io.observe(e)});}
@@ -54,7 +51,7 @@ if(!cfg)return;
 /* Firebase */
 var V='10.14.1',B='https://www.gstatic.com/firebasejs/'+V+'/';
 Promise.all([import(B+'firebase-app.js'),import(B+'firebase-auth.js'),import(B+'firebase-firestore.js')]).then(function(m){
- var app=m[0].initializeApp(cfg),A=m[1],F=m[2],auth=A.getAuth(app),db=F.getFirestore(app);
+ var app=m[0].getApps().length?m[0].getApp():m[0].initializeApp(cfg),A=m[1],F=m[2],auth=A.getAuth(app),db=F.getFirestore(app);
  fs={db:db,doc:F.doc,set:F.setDoc};
  var errs={'auth/invalid-credential':'الإيميل أو كلمة السر غلط','auth/user-not-found':'مفيش حساب بالإيميل ده','auth/wrong-password':'كلمة السر غلط','auth/email-already-in-use':'الإيميل ده مسجّل قبل كده، جرّب دخول','auth/weak-password':'كلمة السر ضعيفة (6 حروف على الأقل)','auth/invalid-email':'الإيميل مش مظبوط','auth/popup-closed-by-user':'','auth/too-many-requests':'محاولات كتير، جرّب بعد شوية'};
  function fail(e){setMsg(errs[e.code]!==undefined?errs[e.code]:'حصلت مشكلة، جرّب تاني',true)}
@@ -117,4 +114,35 @@ if(rm)rm.addEventListener('click',function(e){if(e.target===rm||e.target.closest
 var sf=document.getElementById('sform');if(sf){sf.addEventListener('submit',function(e){e.preventDefault();var m=document.getElementById('smsg'),em=sf.email.value.trim();if(!/^\S+@\S+\.\S+$/.test(em)){m.textContent=root.lang==='en'?'Enter a valid email':'اكتب إيميل صحيح';m.className='amsg e';return}
  var b=sf.querySelector('.send');b.disabled=true;
  fetch('https://formsubmit.co/ajax/mobileappatoz@gmail.com',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({email:em,_subject:'اشتراك جديد في دروس Mobile App A to Z',_honey:sf._honey.value})}).then(function(r){return r.json()}).then(function(j){if(j.success==='true'||j.success===true){m.textContent=root.lang==='en'?'Subscribed. Thank you!':'تم الاشتراك. شكراً ليك!';m.className='amsg';sf.email.value=''}else throw 0}).catch(function(){m.textContent=root.lang==='en'?'Something went wrong, try again':'حصلت مشكلة، جرّب تاني';m.className='amsg e'}).then(function(){b.disabled=false})});}
+})();
+
+/* comments (Firestore, no login, real name required) */
+(function(){var box=document.getElementById('comments');if(!box)return;
+var lesson=parseInt(box.dataset.lesson,10),f=document.getElementById('cmform'),msg=document.getElementById('cmmsg'),list=document.getElementById('cmlist'),cfg=window.FIREBASE_CONFIG,OWNER='mobileappatoz@gmail.com';
+var en=document.documentElement.lang==='en';
+function say(t,err){msg.textContent=t;msg.className='cm-msg'+(err?' e':'')}
+function esc(t){var d=document.createElement('div');d.textContent=t;return d.innerHTML}
+if(!cfg){say(en?'Comments will open soon.':'التعليقات هتتفتح قريبًا.');f.querySelectorAll('input,textarea,button').forEach(function(x){x.disabled=true});return}
+var V='10.14.1',B='https://www.gstatic.com/firebasejs/'+V+'/';
+Promise.all([import(B+'firebase-app.js'),import(B+'firebase-firestore.js'),import(B+'firebase-auth.js')]).then(function(m){
+ var app=m[0].getApps().length?m[0].getApp():m[0].initializeApp(cfg),F=m[1],A=m[2],db=F.getFirestore(app),auth=A.getAuth(app),isOwner=false;
+ function when(ts){try{return ts.toDate().toLocaleDateString(en?'en-GB':'ar-EG',{day:'numeric',month:'short',year:'numeric'})}catch(e){return ''}}
+ function draw(docs){list.innerHTML=docs.length?'':'<p class="cm-empty">'+(en?'No comments yet. Be the first.':'مفيش تعليقات لسه. كن أول واحد.')+'</p>';
+  docs.forEach(function(d){var x=d.data(),el=document.createElement('div');el.className='cm';
+   el.innerHTML='<div class="cm-h"><b>'+esc(x.name)+'</b><small>'+when(x.created)+'</small>'+(isOwner?'<button type="button" class="cm-del" data-id="'+d.id+'">'+(en?'Delete':'مسح')+'</button>':'')+'</div><p>'+esc(x.text)+'</p>';list.appendChild(el)})}
+ var last=[];
+ F.onSnapshot(F.query(F.collection(db,'comments'),F.where('lesson','==',lesson)),function(sn){last=sn.docs.slice().sort(function(a,b){var x=a.data().created,y=b.data().created;return (y?y.seconds:9e9)-(x?x.seconds:9e9)}).slice(0,100);draw(last)},function(){say(en?'Could not load comments.':'مقدرناش نحمّل التعليقات.',true)});
+ A.onAuthStateChanged(auth,function(u){isOwner=!!(u&&u.emailVerified&&u.email===OWNER);draw(last)});
+ list.addEventListener('click',function(e){var b=e.target.closest('.cm-del');if(!b||!isOwner)return;if(confirm(en?'Delete this comment?':'تمسح التعليق؟'))F.deleteDoc(F.doc(db,'comments',b.dataset.id)).catch(function(){})});
+ f.addEventListener('submit',function(e){e.preventDefault();
+  if(f.website.value)return;
+  var nm=f.nm.value.replace(/\s+/g,' ').trim(),tx=f.tx.value.trim();
+  if(!/^[\p{L}][\p{L} .'\-]{1,39}$/u.test(nm)||/https?:|www\./i.test(nm)){say(en?'Please enter your real name (letters only, 2 to 40 characters).':'اكتب اسمك الحقيقي (حروف بس، من 2 لـ 40 حرف).',true);f.nm.focus();return}
+  if(tx.length<2){say(en?'Write your comment first.':'اكتب تعليقك الأول.',true);f.tx.focus();return}
+  if((tx.match(/https?:\/\//gi)||[]).length>1){say(en?'Too many links.':'روابط كتير.',true);return}
+  var now=Date.now(),lastT=+(localStorage.getItem('cm_t')||0);if(now-lastT<30000){say(en?'Please wait a few seconds between comments.':'استنى كام ثانية بين كل تعليق.',true);return}
+  var btn=f.querySelector('button[type=submit]');btn.disabled=true;
+  F.addDoc(F.collection(db,'comments'),{lesson:lesson,name:nm,text:tx,created:F.serverTimestamp()}).then(function(){localStorage.setItem('cm_t',String(Date.now()));f.tx.value='';say(en?'Posted. Thank you!':'اتنشر. شكرًا!')}).catch(function(){say(en?'Could not post. Try again.':'مقدرناش ننشر، جرّب تاني.',true)}).then(function(){btn.disabled=false});
+ });
+}).catch(function(){say(en?'Comments are unavailable now.':'التعليقات مش متاحة دلوقتي.',true)});
 })();
