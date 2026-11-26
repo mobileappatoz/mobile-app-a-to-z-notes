@@ -174,3 +174,6 @@ footer .fl{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.f
 .sapp .stxt h3,.sapp .stxt p{text-shadow:0 2px 14px rgba(0,0,0,.35)}
 
 .aibox{display:grid;gap:8px;opacity:.65}.aibox .fld{width:100%}.ai-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.ai-soon{color:var(--muted);font-size:13px}.aibox .btn[disabled]{opacity:.5;cursor:not-allowed}.sols{display:grid;gap:10px}.sol[hidden]{display:none}.sol-n{margin:0;color:var(--muted);font-weight:800;font-size:13px}.alt-b{justify-self:start;background:transparent;border:1px solid var(--primary);color:var(--primary);cursor:pointer;font-family:inherit;border-radius:12px;padding:8px 16px;font-weight:800}
+.brand,.brand *{white-space:nowrap}.brand b,.brand span{white-space:nowrap}
+@media(max-width:900px){.brand small{display:none}.brand{font-size:15px}}
+.brand{flex:0 0 auto}.brand>div{white-space:nowrap}
