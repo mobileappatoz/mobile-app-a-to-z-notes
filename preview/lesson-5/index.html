@@ -1,38 +1,34 @@
 <!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>الدرس 5: التكرار: for و while و do-while | Mobile App A to Z</title><meta name="description" content="ملاحظات وأكواد وتاسك التكرار: for و while و do-while">
 <script>try{var t=localStorage.getItem('theme')||'dark';document.documentElement.dataset.theme=t}catch(e){document.documentElement.dataset.theme='dark'}</script>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/preview/style.css"></head><body>
 <header><div class="wrap nav"><a class="brand" href="/preview/"><span class="logo"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14"/></svg></span><span dir="ltr">Mobile App A to Z<small>CODE &amp; NOTES</small></span></a>
 <nav class="links"><a href="/preview/#lessons">الدروس</a><a href="https://www.youtube.com/@MobileAppAtoZ" target="_blank" rel="noopener">يوتيوب</a><a href="https://www.tiktok.com/@mobileappatoz" target="_blank" rel="noopener">تيك توك</a></nav>
-<button id="theme" class="iconbtn" aria-label="تبديل الوضع"><span class="sun">☀</span><span class="moon">☾</span></button></div></header><main class="wrap lesson"><a class="back" href="/preview/">← كل الدروس</a><div class="l-head"><span class="badge">الدرس 5</span><h1>التكرار: for و while و do-while</h1></div>
-  <a class="yt" href="https://youtu.be/IYXUPn76q-M" target="_blank" rel="noopener">▶ شاهد الفيديو على يوتيوب</a><div class="box answer"><h3>إجابة تاسك الدرس 4</h3><p>الرقم 7 زوجي ولا فردي</p><div class="snip"><div class="snip-head"><span dir="ltr">Answer: Lesson 4</span><button class="copy" data-code="c17">نسخ</button></div><pre dir="ltr" id="c17"><code><span class="k">void</span> <span class="f">main</span>() {
-  <span class="k">var</span> n = 7;
-  <span class="k">if</span> (n % 2 == 0) {
-    <span class="f">print</span>(<span class="s">'Even'</span>);
-  } <span class="k">else</span> {
-    <span class="f">print</span>(<span class="s">'Odd'</span>);
-  }
-}</code></pre></div></div><h3>ملاحظات</h3><ul class="notes"><li>الـ loop بيكرر كود من غير ما تكتبه بإيدك. بدل مية سطر print بتكتب تلاتة.</li><li>قبل أي loop اسأل نفسك تلات أسئلة: أبدأ من كام؟ أقف إمتى؟ وبزيد كام في كل لفة؟</li><li>الـ for فيها تلات أجزاء: بداية، شرط، زيادة. البداية بتتنفذ مرة واحدة، وبعدين كل لفة: شرط، تنفيذ، زيادة.</li><li>تتبّع الـ loop لفة لفة (i، الشرط، الكود، الزيادة) عشان تلاقي أي غلطة.</li><li>i &lt; 5 يدي 5 لفات، و i &lt;= 5 يدي 6 لفات.</li><li>متغير الجمع sum بنكتبه قبل الـ loop. أي متغير جوه الـ loop بيتعمل من جديد في كل لفة وبيختفي في آخرها.</li><li>while لما مش عارف عدد اللفات. لازم تغيّر قيمة جوه الـ loop وإلا هتبقى infinite loop، وتوقفها بـ Ctrl + C.</li><li>do-while بتنفذ الكود مرة على الأقل وبعدين تتشيك على الشرط.</li><li>break بتقفل الـ loop كلها، و continue بتتخطى لفة واحدة.</li><li>الأرقام الأولية: isPrime بـ true، ولو لقيت رقم بيقسم تخليها false وتكتب break. وخد بالك من 0 و 1: مش أوليين.</li></ul><h3>الأكواد</h3><div class="snip"><div class="snip-head"><span dir="ltr">Print 1 to 100</span><button class="copy" data-code="c18">نسخ</button></div><pre dir="ltr" id="c18"><code><span class="k">void</span> <span class="f">main</span>() {
+<button id="theme" class="iconbtn" aria-label="تبديل الوضع"><span class="sun">☀</span><span class="moon">☾</span></button></div></header><main class="wrap lesson"><div class="crumb"><a href="/preview/">الرئيسية</a> / <a href="/preview/#lessons">الدروس</a> / الدرس 5</div>
+  <div class="l-head"><div><span class="badge">الدرس 5 من 5</span><h1>التكرار: for و while و do-while</h1></div></div><div class="prog"><i style="width:100%"></i></div>
+  <div class="dl"><div class="main-col">
+  <section class="panel"><a class="video" href="https://youtu.be/IYXUPn76q-M" target="_blank" rel="noopener"><span class="ph2">5</span><img src="https://i.ytimg.com/vi/IYXUPn76q-M/maxresdefault.jpg" alt="" onload="if(this.naturalWidth<200)this.remove()" onerror="this.remove()"><span class="play">▶</span><span class="vl">شاهد الفيديو على يوتيوب ↗</span></a></section>
+  <section class="panel"><div class="tabs" role="tablist"><button class="tab on" data-tab="code">الأكواد</button><button class="tab" data-tab="notes">الملاحظات</button><button class="tab" data-tab="task">التاسك</button><button class="tab" data-tab="ans">إجابة تاسك الدرس 4</button></div><div class="pane" id="pane-code"><div class="snip"><div class="snip-head"><span dir="ltr">Print 1 to 100</span><button class="copy" data-code="c17">نسخ</button></div><pre dir="ltr" id="c17"><code><span class="k">void</span> <span class="f">main</span>() {
   <span class="k">for</span> (<span class="k">var</span> i = 1; i &lt;= 100; i++) {
     <span class="f">print</span>(i);
   }
-}</code></pre></div><div class="snip"><div class="snip-head"><span dir="ltr">The 3 parts of for (prints 0 to 4)</span><button class="copy" data-code="c19">نسخ</button></div><pre dir="ltr" id="c19"><code><span class="k">void</span> <span class="f">main</span>() {
+}</code></pre></div><div class="snip"><div class="snip-head"><span dir="ltr">The 3 parts of for (prints 0 to 4)</span><button class="copy" data-code="c18">نسخ</button></div><pre dir="ltr" id="c18"><code><span class="k">void</span> <span class="f">main</span>() {
   <span class="k">for</span> (<span class="k">var</span> i = 0; i &lt; 5; i++) {
     <span class="f">print</span>(i);
   }
-}</code></pre></div><div class="snip"><div class="snip-head"><span dir="ltr">Sum 1 to 10</span><button class="copy" data-code="c20">نسخ</button></div><pre dir="ltr" id="c20"><code><span class="k">void</span> <span class="f">main</span>() {
+}</code></pre></div><div class="snip"><div class="snip-head"><span dir="ltr">Sum 1 to 10</span><button class="copy" data-code="c19">نسخ</button></div><pre dir="ltr" id="c19"><code><span class="k">void</span> <span class="f">main</span>() {
   <span class="k">var</span> sum = 0;
   <span class="k">for</span> (<span class="k">var</span> i = 1; i &lt;= 10; i++) {
     sum = sum + i;
   }
   <span class="f">print</span>(sum);
-}</code></pre></div><div class="snip"><div class="snip-head"><span dir="ltr">Factorial of 5</span><button class="copy" data-code="c21">نسخ</button></div><pre dir="ltr" id="c21"><code><span class="k">void</span> <span class="f">main</span>() {
+}</code></pre></div><div class="snip"><div class="snip-head"><span dir="ltr">Factorial of 5</span><button class="copy" data-code="c20">نسخ</button></div><pre dir="ltr" id="c20"><code><span class="k">void</span> <span class="f">main</span>() {
   <span class="k">var</span> fact = 1;
   <span class="k">for</span> (<span class="k">var</span> i = 1; i &lt;= 5; i++) {
     fact = fact * i;
   }
   <span class="f">print</span>(fact);
-}</code></pre></div><div class="snip"><div class="snip-head"><span dir="ltr">Even numbers (two ways)</span><button class="copy" data-code="c22">نسخ</button></div><pre dir="ltr" id="c22"><code><span class="k">void</span> <span class="f">main</span>() {
+}</code></pre></div><div class="snip"><div class="snip-head"><span dir="ltr">Even numbers (two ways)</span><button class="copy" data-code="c21">نسخ</button></div><pre dir="ltr" id="c21"><code><span class="k">void</span> <span class="f">main</span>() {
   <span class="c">// 1) step by 2</span>
   <span class="k">for</span> (<span class="k">var</span> i = 2; i &lt;= 100; i += 2) {
     <span class="f">print</span>(i);
@@ -44,7 +40,7 @@
       <span class="f">print</span>(i);
     }
   }
-}</code></pre></div><div class="snip"><div class="snip-head"><span dir="ltr">Prime check with break and a flag</span><button class="copy" data-code="c23">نسخ</button></div><pre dir="ltr" id="c23"><code><span class="k">void</span> <span class="f">main</span>() {
+}</code></pre></div><div class="snip"><div class="snip-head"><span dir="ltr">Prime check with break and a flag</span><button class="copy" data-code="c22">نسخ</button></div><pre dir="ltr" id="c22"><code><span class="k">void</span> <span class="f">main</span>() {
   <span class="k">var</span> n = 7;
   <span class="k">var</span> isPrime = <span class="k">true</span>;
   <span class="k">if</span> (n &lt;= 1) {
@@ -58,19 +54,19 @@
     }
   }
   <span class="f">print</span>(<span class="s">'$n prime? $isPrime'</span>);
-}</code></pre></div><div class="snip"><div class="snip-head"><span dir="ltr">while (countdown)</span><button class="copy" data-code="c24">نسخ</button></div><pre dir="ltr" id="c24"><code><span class="k">void</span> <span class="f">main</span>() {
+}</code></pre></div><div class="snip"><div class="snip-head"><span dir="ltr">while (countdown)</span><button class="copy" data-code="c23">نسخ</button></div><pre dir="ltr" id="c23"><code><span class="k">void</span> <span class="f">main</span>() {
   <span class="k">var</span> i = 3;
   <span class="k">while</span> (i &gt; 0) {
     <span class="f">print</span>(i);
     i--;
   }
-}</code></pre></div><div class="snip"><div class="snip-head"><span dir="ltr">do-while</span><button class="copy" data-code="c25">نسخ</button></div><pre dir="ltr" id="c25"><code><span class="k">void</span> <span class="f">main</span>() {
+}</code></pre></div><div class="snip"><div class="snip-head"><span dir="ltr">do-while</span><button class="copy" data-code="c24">نسخ</button></div><pre dir="ltr" id="c24"><code><span class="k">void</span> <span class="f">main</span>() {
   <span class="k">var</span> i = 0;
   <span class="k">do</span> {
     <span class="f">print</span>(i);
     i++;
   } <span class="k">while</span> (i &lt; 3);
-}</code></pre></div><div class="snip"><div class="snip-head"><span dir="ltr">break and continue</span><button class="copy" data-code="c26">نسخ</button></div><pre dir="ltr" id="c26"><code><span class="k">void</span> <span class="f">main</span>() {
+}</code></pre></div><div class="snip"><div class="snip-head"><span dir="ltr">break and continue</span><button class="copy" data-code="c25">نسخ</button></div><pre dir="ltr" id="c25"><code><span class="k">void</span> <span class="f">main</span>() {
   <span class="k">for</span> (<span class="k">var</span> i = 1; i &lt;= 10; i++) {
     <span class="k">if</span> (i == 4) <span class="k">break</span>;
     <span class="f">print</span>(i);
@@ -80,11 +76,20 @@
     <span class="k">if</span> (i == 3) <span class="k">continue</span>;
     <span class="f">print</span>(i);
   }
-}</code></pre></div><div class="snip"><div class="snip-head"><span dir="ltr">Nested loops</span><button class="copy" data-code="c27">نسخ</button></div><pre dir="ltr" id="c27"><code><span class="k">void</span> <span class="f">main</span>() {
+}</code></pre></div><div class="snip"><div class="snip-head"><span dir="ltr">Nested loops</span><button class="copy" data-code="c26">نسخ</button></div><pre dir="ltr" id="c26"><code><span class="k">void</span> <span class="f">main</span>() {
   <span class="k">for</span> (<span class="k">var</span> r = 1; r &lt;= 3; r++) {
     <span class="k">for</span> (<span class="k">var</span> c = 1; c &lt;= 3; c++) {
       <span class="f">print</span>(r * c);
     }
   }
-}</code></pre></div><div class="box task"><h3>تاسك الدرس 5</h3><p>اطبع جدول ضرب 5، من 5 × 1 لحد 5 × 10.</p><p class="hint">تلميح: <bdi>for من 1 لـ 10 وجواها print(5 * i)</bdi></p><p class="hint">الإجابة في فيديو الدرس 6 وفي صفحة الدرس 6.</p></div><div class="pn"><span></span><a href="/preview/lesson-4/">→ الدرس 4</a></div>
-  <h3>التعليقات</h3><p class="cm-note">اكتب تعليقك أو سؤالك عن الدرس. محتاج حساب GitHub مجاني عشان تعلّق.</p><div id="comments" class="comments" data-term="lesson-5"></div></main><footer><div class="wrap">Mobile App A to Z · <a href="https://www.youtube.com/@MobileAppAtoZ" target="_blank" rel="noopener">@MobileAppAtoZ</a></div></footer><script src="/preview/app.js"></script></body></html>
+}</code></pre></div></div><div class="pane" id="pane-notes" hidden><ul class="notes"><li>الـ loop بيكرر كود من غير ما تكتبه بإيدك. بدل مية سطر print بتكتب تلاتة.</li><li>قبل أي loop اسأل نفسك تلات أسئلة: أبدأ من كام؟ أقف إمتى؟ وبزيد كام في كل لفة؟</li><li>الـ for فيها تلات أجزاء: بداية، شرط، زيادة. البداية بتتنفذ مرة واحدة، وبعدين كل لفة: شرط، تنفيذ، زيادة.</li><li>تتبّع الـ loop لفة لفة (i، الشرط، الكود، الزيادة) عشان تلاقي أي غلطة.</li><li>i &lt; 5 يدي 5 لفات، و i &lt;= 5 يدي 6 لفات.</li><li>متغير الجمع sum بنكتبه قبل الـ loop. أي متغير جوه الـ loop بيتعمل من جديد في كل لفة وبيختفي في آخرها.</li><li>while لما مش عارف عدد اللفات. لازم تغيّر قيمة جوه الـ loop وإلا هتبقى infinite loop، وتوقفها بـ Ctrl + C.</li><li>do-while بتنفذ الكود مرة على الأقل وبعدين تتشيك على الشرط.</li><li>break بتقفل الـ loop كلها، و continue بتتخطى لفة واحدة.</li><li>الأرقام الأولية: isPrime بـ true، ولو لقيت رقم بيقسم تخليها false وتكتب break. وخد بالك من 0 و 1: مش أوليين.</li></ul></div><div class="pane" id="pane-task" hidden><div class="box task"><h3>تاسك الدرس 5</h3><p>اطبع جدول ضرب 5، من 5 × 1 لحد 5 × 10.</p><p class="hint">تلميح: <bdi>for من 1 لـ 10 وجواها print(5 * i)</bdi></p><p class="hint">الإجابة في فيديو الدرس 6 وفي صفحة الدرس 6.</p></div></div><div class="pane" id="pane-ans" hidden><div class="box answer"><h3>إجابة تاسك الدرس 4</h3><p>الرقم 7 زوجي ولا فردي</p><div class="snip"><div class="snip-head"><span dir="ltr">Answer: Lesson 4</span><button class="copy" data-code="c27">نسخ</button></div><pre dir="ltr" id="c27"><code><span class="k">void</span> <span class="f">main</span>() {
+  <span class="k">var</span> n = 7;
+  <span class="k">if</span> (n % 2 == 0) {
+    <span class="f">print</span>(<span class="s">'Even'</span>);
+  } <span class="k">else</span> {
+    <span class="f">print</span>(<span class="s">'Odd'</span>);
+  }
+}</code></pre></div></div></div></section>
+  <div class="pn"><span></span><a href="/preview/lesson-4/">→ الدرس 4</a></div>
+  <section class="panel"><h3 class="ct">التعليقات والأسئلة</h3><p class="cm-note">اكتب تعليقك أو سؤالك عن الدرس. محتاج حساب GitHub مجاني عشان تعلّق.</p><div id="comments" class="comments" data-term="lesson-5"></div></section>
+  </div><aside class="side"><div class="panel"><div class="side-t">قائمة الدروس</div><div class="sl"><a class="" href="/preview/lesson-1/"><b>01</b><span>ما هو تطبيق الموبايل؟</span></a><a class="" href="/preview/lesson-2/"><b>02</b><span>تجهيز بيئة العمل: VS Code و Dart SDK</span></a><a class="" href="/preview/lesson-3/"><b>03</b><span>أول برنامج Dart: void main و variables و print</span></a><a class="" href="/preview/lesson-4/"><b>04</b><span>الشروط: if و else و switch</span></a><a class="cur" href="/preview/lesson-5/"><b>05</b><span>التكرار: for و while و do-while</span></a></div></div><div class="panel"><div class="side-t">روابط سريعة</div><a class="ql" href="https://www.youtube.com/@MobileAppAtoZ" target="_blank" rel="noopener">▶ قناة يوتيوب</a><a class="ql" href="https://www.tiktok.com/@mobileappatoz" target="_blank" rel="noopener">♪ تيك توك</a></div></aside></div></main><footer><div class="wrap">Mobile App A to Z · <a href="https://www.youtube.com/@MobileAppAtoZ" target="_blank" rel="noopener">@MobileAppAtoZ</a></div></footer><script src="/preview/app.js"></script></body></html>
