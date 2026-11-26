@@ -1,4 +1,5 @@
 document.addEventListener('click',function(e){
+  var tb=e.target.closest('.tab');if(tb){document.querySelectorAll('.tab').forEach(function(x){x.classList.toggle('on',x===tb)});document.querySelectorAll('.pane').forEach(function(p){p.hidden=p.id!=='pane-'+tb.dataset.tab});}
   var b=e.target.closest('.copy');
   if(b){var text=document.getElementById(b.dataset.code).innerText;
     var done=function(){b.textContent='اتنسخ ✓';b.classList.add('ok');setTimeout(function(){b.textContent='نسخ';b.classList.remove('ok')},1500)};
