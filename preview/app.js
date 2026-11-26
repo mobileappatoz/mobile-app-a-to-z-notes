@@ -2,7 +2,7 @@ document.addEventListener('click',function(e){
   var tb=e.target.closest('.tab');if(tb){document.querySelectorAll('.tab').forEach(function(x){x.classList.toggle('on',x===tb)});document.querySelectorAll('.pane').forEach(function(p){p.hidden=p.id!=='pane-'+tb.dataset.tab});}
   var b=e.target.closest('.copy');
   if(b){var text=document.getElementById(b.dataset.code).innerText;
-    var done=function(){b.textContent='اتنسخ ✓';b.classList.add('ok');setTimeout(function(){b.textContent='نسخ';b.classList.remove('ok')},1500)};
+    var orig=b.innerHTML;var done=function(){b.textContent=document.documentElement.lang==='en'?'Copied ✓':'اتنسخ ✓';b.classList.add('ok');setTimeout(function(){b.innerHTML=orig;b.classList.remove('ok')},1500)};
     var fb=function(){var t=document.createElement('textarea');t.value=text;document.body.appendChild(t);t.select();try{document.execCommand('copy');done()}catch(_){}t.remove()};
     if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(text).then(done,fb);else fb();}
   if(e.target.closest('#theme')){var d=document.documentElement,n=d.dataset.theme==='dark'?'light':'dark';d.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(_){}
@@ -66,4 +66,55 @@ Promise.all([import(B+'firebase-app.js'),import(B+'firebase-auth.js'),import(B+'
  A.onAuthStateChanged(auth,function(u){user=u;ui();if(!u)return;
   var ref=F.doc(db,'users',u.uid);F.getDoc(ref).then(function(s){var r=(s.exists()&&s.data().done)||[];r.forEach(function(n){done[n]=1});saveLocal();render();return F.setDoc(ref,{done:list(),updated:Date.now()},{merge:true})}).catch(function(){});});
 }).catch(function(){});
+})();
+
+/* v5: language, menu, search, continue, certificate, run, subscribe */
+(function(){
+var root=document.documentElement;
+function setLang(l){root.lang=l;root.dir=l==='en'?'ltr':'rtl';try{localStorage.setItem('lang',l)}catch(_){}
+ document.querySelectorAll('.i').forEach(function(e){e.textContent=e.dataset[l]});
+ document.querySelectorAll('[data-pha]').forEach(function(e){e.placeholder=e.dataset[l==='en'?'phe':'pha']});
+ var b=document.getElementById('lang');if(b)b.textContent=l==='en'?'ع':'EN';}
+var lg=document.getElementById('lang');if(lg)lg.addEventListener('click',function(){setLang(root.lang==='en'?'ar':'en')});
+if(root.lang==='en')setLang('en');
+var mb=document.getElementById('menu'),nv=document.getElementById('nav');if(mb)mb.addEventListener('click',function(){nv.classList.toggle('open')});
+document.addEventListener('click',function(e){if(nv&&e.target.closest('#nav a'))nv.classList.remove('open')});
+/* last lesson + continue */
+var lm=document.querySelector('main[data-lesson]');if(lm){try{localStorage.setItem('last_lesson',lm.dataset.lesson)}catch(_){}}
+var ct=document.getElementById('cont');if(ct){var n=null;try{n=localStorage.getItem('last_lesson')}catch(_){}
+ if(n&&window.SEARCH){var l=window.SEARCH.filter(function(x){return String(x.n)===n})[0];if(l){ct.href=l.u;document.getElementById('contt').textContent=(root.lang==='en'?'Lesson ':'الدرس ')+l.n+': '+l.t;ct.hidden=false}}}
+/* search */
+var sm=document.getElementById('smodal'),sq=document.getElementById('sq'),sr=document.getElementById('sres');
+function openS(){if(!sm)return;sm.hidden=false;sq.value='';sr.innerHTML='';setTimeout(function(){sq.focus()},50)}
+['sbtn','sbtn2'].forEach(function(i){var e=document.getElementById(i);if(e)e.addEventListener('click',openS)});
+if(sm){sm.addEventListener('click',function(e){if(e.target===sm||e.target.closest('.mx'))sm.hidden=true});
+ document.addEventListener('keydown',function(e){if(e.key==='Escape')sm.hidden=true;if(e.key==='/'&&!/INPUT|TEXTAREA/.test(document.activeElement.tagName)){e.preventDefault();openS()}});
+ sq.addEventListener('input',function(){var q=sq.value.trim().toLowerCase();sr.innerHTML='';if(q.length<2||!window.SEARCH)return;var c=0;
+  window.SEARCH.forEach(function(l){var hay=(l.t+'\n'+l.x),i=hay.toLowerCase().indexOf(q);if(i<0)return;c++;var s=Math.max(0,i-30),sn=hay.slice(s,i+80).replace(/\s+/g,' ');
+   var a=document.createElement('a');a.href=l.u;var b=document.createElement('b');b.textContent=(root.lang==='en'?'Lesson ':'الدرس ')+l.n+': '+l.t;var p=document.createElement('span');p.textContent='…'+sn+'…';p.dir='auto';a.appendChild(b);a.appendChild(p);sr.appendChild(a)});
+  if(!c){var d=document.createElement('p');d.className='amsg';d.textContent=root.lang==='en'?'No results':'مفيش نتايج';sr.appendChild(d)}});}
+/* progress extras: badges + certificate unlock */
+function doneSet(){var d={};try{JSON.parse(localStorage.getItem('progress_v1')||'[]').forEach(function(n){d[n]=1})}catch(_){}return d}
+function extras(){var d=doneSet();
+ document.querySelectorAll('.tcard[data-ls],.step[data-ls]').forEach(function(c){var ids=c.dataset.ls?c.dataset.ls.split(','):[];c.classList.toggle('complete',ids.length>0&&ids.every(function(i){return d[i]}))});
+ document.querySelectorAll('.trackbar').forEach(function(t){var ids=t.dataset.ls.split(','),ok=ids.every(function(i){return d[i]});t.querySelector('.certbtn').hidden=!ok;t.querySelector('.certlock').hidden=ok});}
+document.addEventListener('click',function(e){if(e.target.closest('.donebtn'))setTimeout(extras,50)});
+setTimeout(extras,100);window.addEventListener('storage',extras);
+/* certificate page */
+var cw=document.getElementById('cert');if(cw){var p=new URLSearchParams(location.search).get('t')||'dart';var NAMES={dart:'Dart',oop:'OOP','flutter-basics':'Flutter Basics','flutter-advanced':'Flutter Advanced'};
+ var LS={dart:[1,2,3,4,5]};var d=doneSet(),ids=LS[p]||[];var ok=ids.length>0&&ids.every(function(i){return d[i]});
+ if(!ok){document.getElementById('clocked').hidden=false}else{document.getElementById('cform2').hidden=false;cw.hidden=false;
+  var nm=document.getElementById('cname');try{nm.value=localStorage.getItem('cert_name')||''}catch(_){}
+  function upd(){document.getElementById('cn').textContent=nm.value.trim()||'—';try{localStorage.setItem('cert_name',nm.value)}catch(_){}}nm.addEventListener('input',upd);upd();
+  document.getElementById('ct').textContent=(NAMES[p]||p)+' Track';document.getElementById('cd').textContent=new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+  document.getElementById('cprint').addEventListener('click',function(){window.print()});}}
+/* DartPad */
+var rm=document.getElementById('rmodal'),dp=document.getElementById('dp'),pending=null;
+document.addEventListener('click',function(e){var r=e.target.closest('.runb');if(!r||!rm)return;pending=document.getElementById(r.dataset.code).innerText;rm.hidden=false;dp.src='https://dartpad.dev/embed-dart.html?theme=dark&run=true';});
+window.addEventListener('message',function(e){if(e.origin!=='https://dartpad.dev'||!pending||!dp.contentWindow)return;if(e.data&&e.data.type==='ready'){dp.contentWindow.postMessage({sourceCode:{'main.dart':pending},type:'sourceCode'},'https://dartpad.dev');}});
+if(rm)rm.addEventListener('click',function(e){if(e.target===rm||e.target.closest('.mx')){rm.hidden=true;dp.src='about:blank';pending=null}});
+/* subscribe */
+var sf=document.getElementById('sform');if(sf){sf.addEventListener('submit',function(e){e.preventDefault();var m=document.getElementById('smsg'),em=sf.email.value.trim();if(!/^\S+@\S+\.\S+$/.test(em)){m.textContent=root.lang==='en'?'Enter a valid email':'اكتب إيميل صحيح';m.className='amsg e';return}
+ var b=sf.querySelector('.send');b.disabled=true;
+ fetch('https://formsubmit.co/ajax/mobileappatoz@gmail.com',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({email:em,_subject:'اشتراك جديد في دروس Mobile App A to Z',_honey:sf._honey.value})}).then(function(r){return r.json()}).then(function(j){if(j.success==='true'||j.success===true){m.textContent=root.lang==='en'?'Subscribed. Thank you!':'تم الاشتراك. شكراً ليك!';m.className='amsg';sf.email.value=''}else throw 0}).catch(function(){m.textContent=root.lang==='en'?'Something went wrong, try again':'حصلت مشكلة، جرّب تاني';m.className='amsg e'}).then(function(){b.disabled=false})});}
 })();
