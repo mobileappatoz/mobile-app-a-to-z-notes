@@ -110,8 +110,8 @@ var cw=document.getElementById('cert');if(cw){var p=new URLSearchParams(location
   document.getElementById('cprint').addEventListener('click',function(){window.print()});}}
 /* DartPad */
 var rm=document.getElementById('rmodal'),dp=document.getElementById('dp'),pending=null;
-document.addEventListener('click',function(e){var r=e.target.closest('.runb');if(!r||!rm)return;pending=document.getElementById(r.dataset.code).innerText;rm.hidden=false;dp.src='https://dartpad.dev/embed-dart.html?theme=dark&run=true';});
-window.addEventListener('message',function(e){if(e.origin!=='https://dartpad.dev'||!pending||!dp.contentWindow)return;if(e.data&&e.data.type==='ready'){dp.contentWindow.postMessage({sourceCode:{'main.dart':pending},type:'sourceCode'},'https://dartpad.dev');}});
+document.addEventListener('click',function(e){var r=e.target.closest('.runb');if(!r)return;var c=document.getElementById(r.dataset.code).innerText;try{navigator.clipboard.writeText(c)}catch(x){}var o=r.innerHTML;r.innerHTML=(document.documentElement.lang==='en'?'Copied! Paste in DartPad':'اتنسخ! الصقه في DartPad');setTimeout(function(){r.innerHTML=o},3500);window.open('https://dartpad.dev/?channel=stable','_blank','noopener');});
+
 if(rm)rm.addEventListener('click',function(e){if(e.target===rm||e.target.closest('.mx')){rm.hidden=true;dp.src='about:blank';pending=null}});
 /* subscribe */
 var sf=document.getElementById('sform');if(sf){sf.addEventListener('submit',function(e){e.preventDefault();var m=document.getElementById('smsg'),em=sf.email.value.trim();if(!/^\S+@\S+\.\S+$/.test(em)){m.textContent=root.lang==='en'?'Enter a valid email':'اكتب إيميل صحيح';m.className='amsg e';return}
