@@ -9,7 +9,7 @@ const LESSONS = [
         n: 1,
         title: 'ما هو تطبيق الموبايل؟',
         topic: 'What is a mobile app',
-        youtube: 'https://youtu.be/0lc82uuTqn8',
+        youtube: 'https://youtu.be/0lc82uuTqn8', dur: 188,
         notes: [
             'التطبيق هو برنامج بيشتغل على الموبايل.',
             'أي تطبيق بيعدي بخطوات: فكرة، تصميم، كود، تجربة، نشر.',
@@ -21,7 +21,7 @@ const LESSONS = [
         n: 2,
         title: 'تجهيز بيئة العمل: VS Code و Dart SDK',
         topic: 'Setup day',
-        youtube: 'https://youtu.be/9OoBi_ybQcQ',
+        youtube: 'https://youtu.be/9OoBi_ybQcQ', dur: 264,
         notes: [
             'حمّل VS Code من الموقع الرسمي code.visualstudio.com (النسخة اللي في الدرس: 1.148). فعّل Add to PATH وقت التثبيت.',
             'ثبّت إضافات Dart و Flutter من تبويب Extensions.',
@@ -39,7 +39,7 @@ const LESSONS = [
         n: 3,
         title: 'أول برنامج Dart: void main و variables و print',
         topic: 'First Dart program',
-        youtube: 'https://youtu.be/2op43lUThLc',
+        youtube: 'https://youtu.be/2op43lUThLc', dur: 306,
         notes: [
             'اعمل ملف جديد في VS Code اسمه main.dart.',
             'أي برنامج Dart بيبدأ من void main. من غيره مفيش حاجة بتشتغل.',
@@ -70,13 +70,13 @@ double height = 1.75;
 bool isStudent = true;
 var city = 'Cairo';` },
         ],
-        task: { text: 'اعمل تلات متغيرات: اسمك وسنك ومدينتك، واطبعهم في جملة واحدة. اكتب الجملة اللي طلعت معاك في التعليقات.' },
+        task: { text: 'اعمل تلات متغيرات: اسمك وسنك ومدينتك، واطبعهم في جملة واحدة. شغّل البرنامج وتأكد إن الجملة اتطبعت صح في الـ terminal.' },
     },
     {
         n: 4,
         title: 'الشروط: if و else و switch',
         topic: 'Conditions',
-        youtube: 'https://youtu.be/y9iDr4TczBw',
+        youtube: 'https://youtu.be/I2phxwrN1MU', dur: 516,
         notes: [
             'الـ control statement كود بيتنفذ بس لو شرط اتحقق.',
             'فكّر بالخطوات قبل الكود: خد القيمة، اتشيك عليها، اطبع النتيجة. بعدين حوّل كل خطوة لسطر.',
@@ -197,7 +197,7 @@ void main() {
         n: 5,
         title: 'التكرار: for و while و do-while',
         topic: 'Loops',
-        youtube: 'https://youtu.be/p_1j1hUR0Dk',
+        youtube: 'https://youtu.be/IYXUPn76q-M', dur: 521,
         notes: [
             'الـ loop بيكرر كود من غير ما تكتبه بإيدك. بدل مية سطر print بتكتب تلاتة.',
             'قبل أي loop اسأل نفسك تلات أسئلة: أبدأ من كام؟ أقف إمتى؟ وبزيد كام في كل لفة؟',
